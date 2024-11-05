@@ -1,15 +1,19 @@
 snow_candy_red:
     type: item
-    material: red_wool
-    display name: <red> Новорічна цукерка
+    material: red_candle
+    display name: <&f>[<&c>⭐<&f>] - <&c>Червона цукерка
     lore:
-    - "Використовуй 10 цукерок для крафту"
-    - "Мішечка 1 рівня"
+    - "<&f>"
+    - "<&f>● Цукерка з новорічним ароматом"
+    - "<&f>● Використовуй цукерки для крафту"
+    - "<&f>"
+    - "<&f>● Використати - <&a><&n>ПКМ <&f>"
+    - "<&f>● Можна з'їсти раз в <&e><n>5 секунд. <&f>"
 
 snow_candyevent_red:
     type: world
     events:
-        on player right clicks block with:candy:
+        on player right clicks block with:snow_candy_red:
             - ratelimit <player> 100t
             - take iteminhand
             - narrate "<&f>[<&c>⭐<&f>] - <&f>Конфета с приятным вкусом!"
@@ -21,16 +25,20 @@ snow_candyevent_red:
 
 snow_candy_yellow:
     type: item
-    material: red_wool
-    display name: <yellow> Новорічна цукерка
+    material: yellow_candle
+    display name: <&f>[<&e>⭐<&f>] - <&e>Жовта цукерка
     lore:
-    - "Використовуй цукерки для крафту"
-    - "Мішечка 1 рівня"
+    - "<&f>"
+    - "<&f>● Цукерка з новорічним ароматом"
+    - "<&f>● Використовуй цукерки для крафту"
+    - "<&f>"
+    - "<&f>● Використати - <&a><&n>ПКМ <&f>"
+    - "<&f>● Можна з'їсти раз в <&e><n>5 секунд. <&f>"
 
 snow_candyevent_yellow:
     type: world
     events:
-        on player right clicks block with:candy:
+        on player right clicks block with:snow_candy_yellow:
             - ratelimit <player> 100t
             - take iteminhand
             - narrate "<&f>[<&c>⭐<&f>] - <&f>Конфета с приятным вкусом!"
@@ -42,16 +50,20 @@ snow_candyevent_yellow:
 
 snow_candy_green:
     type: item
-    material: red_wool
-    display name: <green> Новорічна цукерка
+    material: lime_candle
+    display name: <&f>[<&a>⭐<&f>] - <&a>Зелена цукерка
     lore:
-    - "Використовуй цукерки для крафту"
-    - "Мішечка 1 рівня"
+    - "<&f>"
+    - "<&f>● Цукерка з новорічним ароматом"
+    - "<&f>● Використовуй цукерки для крафту"
+    - "<&f>"
+    - "<&f>● Використати - <&a><&n>ПКМ <&f>"
+    - "<&f>● Можна з'їсти раз в <&e><n>5 секунд. <&f>"
 
 snow_candyevent_green:
     type: world
     events:
-        on player right clicks block with:candy:
+        on player right clicks block with:snow_candy_green:
             - ratelimit <player> 100t
             - take iteminhand
             - narrate "<&f>[<&c>⭐<&f>] - <&f>Конфета с приятным вкусом!"
@@ -63,7 +75,7 @@ snow_candyevent_green:
 
 loot_bag1:
     type: item
-    material: chest
+    material: red_bundle
     display name: <green> Новорічний пакунок 1 рівня
     lore:
     - "Новорічний подарунок від Санти"
@@ -77,7 +89,7 @@ loot_bag1:
 
 loot_bag2:
     type: item
-    material: chest
+    material: purple_bundle
     display name: <green> Новорічний пакунок 2 рівня
     lore:
     - "Новорічний подарунок від Санти"
@@ -91,13 +103,13 @@ loot_bag2:
 
 loot_bag3:
     type: item
-    material: chest
+    material: bundle
     display name: <green> Новорічний пакунок 3 рівня
     lore:
     - "Новорічний подарунок від Санти"
     recipes:
         1:
-         type: shaped
+         type: blue_shaped
          input:
          - air|loot_bag2|air
          - air|loot_bag2|air
