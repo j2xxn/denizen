@@ -109,7 +109,7 @@ loot_bag3:
     - "Новорічний подарунок від Санти"
     recipes:
         1:
-         type: blue_shaped
+         type: shaped
          input:
          - air|loot_bag2|air
          - air|loot_bag2|air
@@ -134,11 +134,11 @@ lootbag1_droped:
                 - playsound sound:block_amethyst_block_break pitch:3 volume:10 <[loc]>
                 - random:
                   - repeat 1:
-                    - drop <[snow_candy_red].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[snow_candy_red].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                   - repeat 1:
-                    - drop <[snow_candy_yellow].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[snow_candy_yellow].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                   - repeat 1:
-                    - drop <[snow_candy_green].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[snow_candy_green].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                 - repeat 10:
                     - playeffect effect:SOUL <[loc]> <location[0,5,0]> quantity:1 visibility:10
                     - wait 1t
@@ -162,11 +162,11 @@ lootbag2_droped:
                 - playsound sound:block_amethyst_block_break pitch:3 volume:10 <[loc]>
                 - random:
                   - repeat 1:
-                    - drop <[iron_ingot].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[iron_ingot].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                   - repeat 1:
-                    - drop <[emerald].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[emerald].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                   - repeat 1:
-                    - drop <[diamond].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[diamond].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                 - repeat 10:
                     - playeffect effect:SOUL <[loc]> <location[0,5,0]> quantity:1 visibility:10
                     - wait 1t
@@ -190,12 +190,22 @@ lootbag3_droped:
                 - playsound sound:block_amethyst_block_break pitch:3 volume:10 <[loc]>
                 - random:
                   - repeat 1:
-                    - drop <[netherite_ingot].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[netherite_ingot].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                   - repeat 1:
-                    - drop <[diamond_block].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[diamond_block].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                   - repeat 1:
-                    - drop <[netherite_block].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
+                    - drop <list[netherite_block].random[1]> <cuboid[<location[-1,-1,-1]>|<location[1,1,1]>].spawnable_blocks.random> <[loc]>
                 - repeat 10:
                     - playeffect effect:SOUL <[loc]> <location[0,5,0]> quantity:1 visibility:10
                     - wait 1t
 
+spawn_candies_around_players:
+    type: world
+    debug: false
+    events:
+        on system time hourly:  # Спавн кожну годину
+          - define_spawned_candies <player.list.size.multiply[5]>
+          - foreach <server.online_players>:
+                - repeat 5:
+                    - define <context.player.location.add[<random[-3,3]>,0,<random[-3,3]>]>  # Локація навколо гравця
+                    - spawn <entry[define]> item:candies
