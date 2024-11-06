@@ -199,13 +199,9 @@ lootbag3_droped:
                     - playeffect effect:SOUL <[loc]> <location[0,5,0]> quantity:1 visibility:10
                     - wait 1t
 
-spawn_candies_around_players:
-    type: world
-    debug: false
-    events:
-        on system time hourly:  # Спавн кожну годину
-          - define_spawned_candies <player.list.size.multiply[5]>
-          - foreach <server.online_players>:
-                - repeat 5:
-                    - define <context.player.location.add[<random[-3,3]>,0,<random[-3,3]>]>  # Локація навколо гравця
-                    - spawn <entry[define]> item:candies
+start_event:
+    type: command
+    permission: snow.event.start
+    usage: /snowy
+    script:
+        - if 
