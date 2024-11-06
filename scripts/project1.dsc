@@ -207,13 +207,18 @@ start_event:
         - annonce "Зимній івент почнеться через 10хв!"
         - weit 10m
         - annonce "Зимній івент через..."
+        - wait 1s
         - annonce " "
         - annonce "3"
         - annonce " "
+        - wait 1s
         - annonce "2"
         - annonce " "
+        - wait 1s
         - annonce "1"
         - annonce " "
+        - wait 1s
         - annonce "Зимній івент почато!"
+        - summon <player.location> warder        
 
 
