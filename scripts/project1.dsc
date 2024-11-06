@@ -204,4 +204,16 @@ start_event:
     permission: snow.event.start
     usage: /snowy
     script:
-        - if 
+        - annonce "Зимній івент почнеться через 10хв!"
+        - weit 10m
+        - annonce "Зимній івент через..."
+        - annonce " "
+        - annonce "3"
+        - annonce " "
+        - annonce "2"
+        - annonce " "
+        - annonce "1"
+        - annonce " "
+        - annonce "Зимній івент почато!"
+
+
