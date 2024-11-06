@@ -199,7 +199,7 @@ lootbag3_droped:
                     - playeffect effect:SOUL <[loc]> <location[0,5,0]> quantity:1 visibility:10
                     - wait 1t
 
-start_event:
+snowy:
     type: command
     permission: snow.event.start
     usage: /snowy
